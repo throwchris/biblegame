@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bible Verse Order Game - 1 John</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <!-- Your game CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="" style="
+background-image: url('neon2.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+">
+
+
+  <div class="w3-container w3-center w3-padding-16">
+    <h1 class="neon-pink">Bible Verse Order Game</h1>
+    <h3 class="w3-text-white">1 John (KJV)</h3>
+  </div>
+
+  <!-- Controls: chapter + mode -->
+  <div class="w3-container w3-center w3-padding-16">
+    <!-- Chapter selector -->
+    <div class="w3-section">
+      <label for="chapterSelect" class="w3-text-light-grey w3-margin-right">
+        Chapter:
+      </label>
+      <select id="chapterSelect" class="w3-select w3-border" style="max-width: 200px;">
+        <option value="1john1" selected>1 John 1</option>
+        <option value="1john2">1 John 2</option>
+        <option value="1john3">1 John 3</option>
+        <option value="1john4">1 John 4</option>
+        <option value="1john5">1 John 5</option>
+      </select>
+    </div>
+
+    <!-- Mode selector -->
+    <div class="w3-section">
+      <span class="w3-text-light-grey w3-margin-right">Mode:</span>
+
+      <label class="w3-text-light-grey w3-margin-right">
+        <input class="w3-radio" type="radio" name="mode" value="game" checked>
+        <span class="w3-small">Game Mode</span>
+      </label>
+
+      <label class="w3-text-light-grey">
+        <input class="w3-radio" type="radio" name="mode" value="study">
+        <span class="w3-small">Study Mode</span>
+      </label>
+    </div>
+
+    <!-- Load/reset -->
+    <button
+      class="w3-button w3-blue w3-margin-top"
+      onclick="loadChapter()">
+      Load / Reset Chapter
+    </button>
+     <!-- Bottom controls + feedback -->
+     <div class="w3-container w3-center w3-padding-16">
+        <button id="checkBtn"
+                class="w3-button w3-green w3-margin-right"
+                onclick="checkOrder()">
+          Check Order
+        </button>
+        <span id="feedbackMessage" class="w3-text-light-grey"></span>
+      </div>
+
+    <p class="w3-text-light-grey w3-small w3-margin-top">
+      Game Mode: drag scrambled verses into order.<br>
+      Study Mode: see the chapter laid out correctly for review.
+    </p>
+  </div>
+
+   
+
+  <!-- Main two-column layout -->
+  <div class="w3-row-padding w3-padding">
+
+    <!-- Left: scrambled / source column -->
+    <div class="w3-half">
+      <div class="w3-card">
+        <h4>Scrambled Verses</h4>
+        <p class="w3-small">
+          In Game Mode, drag a verse card from here to the right and arrange in order.
+          In Study Mode, this area may be empty.
+        </p>
+        <div id="leftContainer" class="drop-zone"
+             ondragover="handleContainerDragOver(event)"
+             ondrop="handleContainerDrop(event, 'leftContainer')">
+          <!-- Verse cards (scrambled or empty) injected by script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: your order / study column -->
+    <div class="w3-half">
+      <div class="w3-card">
+        <h4>Your Order / Study View</h4>
+        <p class="w3-small">
+          In Game Mode, arrange verses here from verse 1 onward.
+          In Study Mode, the correct order is shown for reading.
+        </p>
+        <div id="rightContainer" class="drop-zone"
+             ondragover="handleContainerDragOver(event)"
+             ondrop="handleContainerDrop(event, 'rightContainer')">
+          <!-- Verse cards (user order or study view) injected by script.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
