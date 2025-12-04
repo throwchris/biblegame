@@ -62,23 +62,12 @@ background-attachment: fixed;
       onclick="loadChapter()">
       Load / Reset Chapter
     </button>
-     <!-- Bottom controls + feedback -->
-     <div class="w3-container w3-center w3-padding-16">
-        <button id="checkBtn"
-                class="w3-button w3-green w3-margin-right"
-                onclick="checkOrder()">
-          Check Order
-        </button>
-        <span id="feedbackMessage" class="w3-text-light-grey"></span>
-      </div>
 
     <p class="w3-text-light-grey w3-small w3-margin-top">
       Game Mode: drag scrambled verses into order.<br>
       Study Mode: see the chapter laid out correctly for review.
     </p>
   </div>
-
-   
 
   <!-- Main two-column layout -->
   <div class="w3-row-padding w3-padding">
@@ -116,7 +105,15 @@ background-attachment: fixed;
     </div>
   </div>
 
-
+  <!-- Bottom controls + feedback -->
+  <div class="w3-container w3-center w3-padding-16">
+    <button id="checkBtn"
+            class="w3-button w3-green w3-xlarge w3-margin-right"
+            onclick="checkOrder()">
+      Check Order
+    </button>
+    <span id="feedbackMessage" class="w3-text-light-grey"></span>
+  </div>
 
   <script src="script.js"></script>
 </body>
